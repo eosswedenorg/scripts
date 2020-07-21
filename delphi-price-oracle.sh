@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ACCOUNT="waxswedenorg"
+ACCOUNT="ACCOUNT_NAME"
 CONTRACT="delphioracle"
 
 get_price() {
@@ -39,6 +39,4 @@ unlock_wallet 1>/dev/null 2>&1
 
 echo $PAYLOAD > /tmp/update_delphi_oracle.tmp
 
-#${CLEOS} -u ${API_URL} --wallet-url ${WALLET_URL} push action $CONTRACT write \'$PAYLOAD\' -p ${ACCOUNT}@oracle
-#echo ${CLEOS} -u ${API_URL} --wallet-url ${WALLET_URL} push action $CONTRACT write $(cat /tmp/update_delphi_oracle.tmp) -p ${ACCOUNT}@oracle
 eval ${CLEOS} -u ${API_URL} --wallet-url ${WALLET_URL} push action $CONTRACT write $(cat /tmp/update_delphi_oracle.tmp) -p ${ACCOUNT}@oracle
